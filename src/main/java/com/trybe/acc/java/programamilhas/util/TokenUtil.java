@@ -12,6 +12,7 @@ import javax.crypto.SecretKey;
 import javax.enterprise.context.ApplicationScoped;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
+/**Classe TokenUtil.*/
 @ApplicationScoped
 public class TokenUtil {
 
@@ -33,9 +34,9 @@ public class TokenUtil {
 
   /**
    * Obtem o id da pessoa usuária, dado um token.
-   * @param token o token a ser validado
-   * @return o id da pessoa.
-   * @throws AcessoNaoAutorizadoException caso o token seja invalido.
+   * * @param token o token a ser validado
+   * * @return o id da pessoa.
+   * * @throws AcessoNaoAutorizadoException caso o token seja invalido.
    */
   public Integer obterIdUsuario(String token) throws AcessoNaoAutorizadoException {
     try {

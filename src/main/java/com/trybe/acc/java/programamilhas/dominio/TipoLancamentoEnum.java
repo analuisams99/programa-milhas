@@ -6,6 +6,7 @@ package com.trybe.acc.java.programamilhas.dominio;
  * milhas.TIPOLANCAMENTO (IDTIPOLANCAMENTO, DESCRICAO) VALUES (3, 'Acúmulo'); INSERT INTO
  * milhas.TIPOLANCAMENTO (IDTIPOLANCAMENTO, DESCRICAO) VALUES (4, 'Resgate');
  */
+/**Enum TipoLancamentoEnum.*/
 public enum TipoLancamentoEnum {
 
   BONUS(1),
@@ -25,6 +26,4 @@ public enum TipoLancamentoEnum {
   public Integer getId() {
     return id;
   }
-
-
 }

@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**Classe de entidade Pessoa.*/
 @Entity
 public class Pessoa {
 

@@ -1,12 +1,12 @@
 package com.trybe.acc.java.programamilhas.dao;
 
 import com.trybe.acc.java.programamilhas.model.Pessoa;
-import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+/**Classe PessoaDao.*/
 @ApplicationScoped
 public class PessoaDao {
 

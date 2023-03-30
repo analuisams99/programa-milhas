@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+/**Classe de entidade Lancamento.*/
 @Entity
 public class Lancamento {
 

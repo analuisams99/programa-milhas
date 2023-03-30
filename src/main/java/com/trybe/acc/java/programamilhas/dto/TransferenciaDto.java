@@ -2,6 +2,7 @@ package com.trybe.acc.java.programamilhas.dto;
 
 import javax.validation.constraints.Min;
 
+/**Classe TransferenciaDto.*/
 public class TransferenciaDto {
 
   private String usuarioDestino;
@@ -25,6 +26,5 @@ public class TransferenciaDto {
   public void setUsuarioDestino(String usuarioDestino) {
     this.usuarioDestino = usuarioDestino;
   }
-
 
 }

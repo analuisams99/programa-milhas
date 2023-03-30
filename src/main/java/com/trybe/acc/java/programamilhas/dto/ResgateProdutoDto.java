@@ -1,5 +1,6 @@
 package com.trybe.acc.java.programamilhas.dto;
 
+/**Classe ResgateProdutoDto.*/
 public class ResgateProdutoDto {
 
   private Integer idProduto;
