@@ -2,6 +2,7 @@ package com.trybe.acc.java.programamilhas.rest;
 
 import com.trybe.acc.java.programamilhas.exception.AcessoNaoAutorizadoException;
 import com.trybe.acc.java.programamilhas.model.Lancamento;
+import com.trybe.acc.java.programamilhas.result.SaldoResult;
 import com.trybe.acc.java.programamilhas.service.ContaService;
 import com.trybe.acc.java.programamilhas.util.TokenUtil;
 import java.util.List;
@@ -30,5 +31,12 @@ public class ContaResources {
     return service.buscaExtrato(idUsuario);
   }
 
+  @GET
+  @Path("/saldo")
+  public SaldoResult buscaSaldo(@QueryParam("token") String token)
+      throws AcessoNaoAutorizadoException {
+    Integer idUsuario = tokenUtil.obterIdUsuario(token);
+    return service.buscaSaldo(idUsuario);
+  }
 
 }
