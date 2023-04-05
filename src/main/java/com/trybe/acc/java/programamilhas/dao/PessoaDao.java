@@ -49,6 +49,18 @@ public class PessoaDao {
     );
 
     entityManager.persist(lancamento);
-    return;
+  }
+  
+  /**Método de deletar uma pessoa.*/
+  @Transactional
+  public void deletar(Integer id) {
+    String hql = "DELETE FROM Lancamento l WHERE l.usuario.id = :id";
+
+    Query query = entityManager.createQuery(hql);
+    query.setParameter("id", id);
+    query.executeUpdate();
+
+    Pessoa pessoa = entityManager.find(Pessoa.class, id);
+    entityManager.remove(pessoa);
   }
 }
