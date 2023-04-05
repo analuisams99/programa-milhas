@@ -30,4 +30,12 @@ public class AdminResource {
     return adminService.adicionaCredito(lancamento);
   }
 
+  @POST
+  @Path("/resgate")
+  public MensagemResult efetuaResgate(@QueryParam("token") String token, LancamentoDto lancamento)
+      throws AcessoNaoAutorizadoException {
+    tokenUtil.validarAdmToken(token);
+    return adminService.efetuaResgate(lancamento);
+  }
+
 }
