@@ -1,10 +1,13 @@
 package com.trybe.acc.java.programamilhas.dao;
 
+import com.trybe.acc.java.programamilhas.model.Lancamento;
 import com.trybe.acc.java.programamilhas.model.Pessoa;
+import com.trybe.acc.java.programamilhas.util.LancamentoUtil;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 /**Classe PessoaDao.*/
 @ApplicationScoped
@@ -13,6 +16,9 @@ public class PessoaDao {
   @Inject
   EntityManager entityManager;
 
+  @Inject
+  LancamentoUtil lancamentoUtil;
+  
   /**
    * Método responsável pela realização do login.
    * 
@@ -26,5 +32,23 @@ public class PessoaDao {
     query.setParameter("login", login);
     query.setParameter("hash", hash);
     return (Pessoa) query.getSingleResult();
+  }
+  
+
+  /**Método de salvar uma pessoa.*/
+  @Transactional
+  public void salvar(String login, String hash) {
+    Pessoa pessoa = new Pessoa();
+    pessoa.setLogin(login);
+    pessoa.setHash(hash);
+    entityManager.persist(pessoa);
+    entityManager.flush();
+
+    Lancamento lancamento = lancamentoUtil.criarLancamento(
+        pessoa.getId(), 0, 1, null, "Saldo inicial", null
+    );
+
+    entityManager.persist(lancamento);
+    return;
   }
 }
