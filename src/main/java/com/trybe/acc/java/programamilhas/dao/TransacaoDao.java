@@ -33,4 +33,13 @@ public class TransacaoDao {
         .getSingleResult();
   }
 
+  /**Método buscaUsuarioPorId.*/
+  public Pessoa buscaUsuarioPorId(Integer idUsuario) {
+    String hql = "SELECT p FROM Pessoa p WHERE p.id = :idUsuario";
+
+    return entityManager.createQuery(hql, Pessoa.class)
+        .setParameter("idUsuario", idUsuario)
+        .getSingleResult();
+  }
+
 }
