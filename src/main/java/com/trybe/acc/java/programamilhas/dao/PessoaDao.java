@@ -63,4 +63,12 @@ public class PessoaDao {
     Pessoa pessoa = entityManager.find(Pessoa.class, id);
     entityManager.remove(pessoa);
   }
+  
+  /**Método buscarPorNome.*/
+  public Pessoa buscarPorNome(String nome) {
+    String hql = "FROM " + Pessoa.class.getSimpleName() + " WHERE login = :nome";
+    Query query = entityManager.createQuery(hql);
+    query.setParameter("nome", nome);
+    return (Pessoa) query.getSingleResult();
+  }
 }
