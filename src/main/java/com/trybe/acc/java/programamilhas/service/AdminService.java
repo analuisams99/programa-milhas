@@ -7,8 +7,10 @@ import com.trybe.acc.java.programamilhas.model.Lancamento;
 import com.trybe.acc.java.programamilhas.model.Pessoa;
 import com.trybe.acc.java.programamilhas.model.TipoLancamento;
 import com.trybe.acc.java.programamilhas.result.MensagemResult;
+import com.trybe.acc.java.programamilhas.result.SaldoResult;
 import com.trybe.acc.java.programamilhas.util.LancamentoUtil;
 import java.time.LocalDate;
+import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
@@ -61,6 +63,11 @@ public class AdminService {
     adminDao.efetuaResgate(lancamento);
 
     return new MensagemResult("Resgate efetuado com sucesso!");
+  }
+
+  /**Método buscarSaldos. */
+  public List<SaldoResult> buscarSaldos() {
+    return adminDao.buscarSaldos();
   }
 
 }
