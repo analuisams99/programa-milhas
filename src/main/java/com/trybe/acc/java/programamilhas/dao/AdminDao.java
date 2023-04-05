@@ -19,4 +19,10 @@ public class AdminDao {
     return;
   }
 
+  @Transactional
+  public void efetuaResgate(Lancamento lancamento) {
+    entityManager.persist(lancamento);
+    return;
+  }
+
 }
