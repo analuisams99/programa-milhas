@@ -53,4 +53,10 @@ public class TransacaoDao {
         .setParameter("idProduto", idProduto)
         .getSingleResult();
   }
+
+  /**Método efetuaTransacao.*/
+  @Transactional
+  public void efetuaTransacao(Lancamento lancamento) {
+    entityManager.persist(lancamento);
+  }
 }
