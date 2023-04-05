@@ -1,6 +1,7 @@
 package com.trybe.acc.java.programamilhas.rest;
 
 import com.trybe.acc.java.programamilhas.model.Parceiro;
+import com.trybe.acc.java.programamilhas.model.Produto;
 import com.trybe.acc.java.programamilhas.service.DominioService;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
@@ -20,6 +21,12 @@ public class DominioResource {
   @Path("/parceiro")
   public List<Parceiro> getParceiros() {
     return service.getParceiros();
+  }
+
+  @GET
+  @Path("/produto")
+  public List<Produto> getProdutos() {
+    return service.getProdutos();
   }
 
 }
