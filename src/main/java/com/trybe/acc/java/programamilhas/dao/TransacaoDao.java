@@ -1,5 +1,6 @@
 package com.trybe.acc.java.programamilhas.dao;
 
+import com.trybe.acc.java.programamilhas.model.Pessoa;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -21,6 +22,15 @@ public class TransacaoDao {
         .getSingleResult();
 
     return result.intValue();
+  }
+
+  /**Método buscaUsuarioPorNome.*/
+  public Pessoa buscaUsuarioPorNome(String login) {
+    String hql = "SELECT p FROM Pessoa p WHERE p.login = :login";
+
+    return entityManager.createQuery(hql, Pessoa.class)
+        .setParameter("login", login)
+        .getSingleResult();
   }
 
 }
