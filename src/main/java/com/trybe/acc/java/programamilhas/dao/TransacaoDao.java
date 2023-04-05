@@ -1,9 +1,12 @@
 package com.trybe.acc.java.programamilhas.dao;
 
+import com.trybe.acc.java.programamilhas.model.Lancamento;
 import com.trybe.acc.java.programamilhas.model.Pessoa;
+import com.trybe.acc.java.programamilhas.model.Produto;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 /**Classe TransacaoDao.*/
 @ApplicationScoped
@@ -42,4 +45,12 @@ public class TransacaoDao {
         .getSingleResult();
   }
 
+  /**Método buscaProduto.*/
+  public Produto buscaProduto(Integer idProduto) {
+    String hql = "SELECT p FROM Produto p WHERE p.id = :idProduto";
+
+    return entityManager.createQuery(hql, Produto.class)
+        .setParameter("idProduto", idProduto)
+        .getSingleResult();
+  }
 }
